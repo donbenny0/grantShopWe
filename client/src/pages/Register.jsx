@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import style from '../css/register.module.css';
 import axios from 'axios';
+import { CircularLoader } from '../components/CircularLoader';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -8,24 +11,58 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
 
+    const validateEmail = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    };
+
+    const validateInputs = () => {
+        if (!name) {
+            toast.error("Name is required");
+            return false;
+        }
+        if (!email) {
+            toast.error("Email is required");
+            return false;
+        }
+        if (!validateEmail(email)) {
+            toast.error("Invalid email format");
+            return false;
+        }
+        if (!password) {
+            toast.error("Password is required");
+            return false;
+        }
+        if (password.length < 6) {
+            toast.error("Password must be at least 6 characters long");
+            return false;
+        }
+        return true;
+    };
 
     const createUser = async () => {
-        setLoading(true)
+        if (!validateInputs()) {
+            return;
+        }
+
+        setLoading(true);
         const userData = {
-            "name": name,
-            "email": email,
-            "password": password
+            name,
+            email,
+            password
         };
 
         try {
             const response = await axios.post('http://localhost:5000/grantshopwe/api/createuser', userData);
-            console.log('User added successfully:', response.data);
-            setLoading(false)
-
+            setLoading(false);
+            if (response.data.response === 'User already exists') {
+                toast.warning('User already exists!');
+            } else {
+                toast.success('User added successfully!');
+            }
         } catch (error) {
-            setLoading(false)
-
-            console.error('Error adding user:', error);
+            setLoading(false);
+            toast.error('Error adding user');
         }
     };
 
@@ -48,7 +85,7 @@ const Register = () => {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
-                            <label htmlFor="name"><i className="bi bi-at me-2"></i>Your name</label>
+                            <label htmlFor="name"><i className="bi bi-person me-2"></i>Your name</label>
                         </div>
                         <div className="form-floating mb-3">
                             <input
@@ -59,7 +96,7 @@ const Register = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            <label htmlFor="email"><i className="bi bi-at me-2"></i>Email</label>
+                            <label htmlFor="email"><i className="bi bi-envelope me-2"></i>Email</label>
                         </div>
                         <div className="form-floating mb-3">
                             <input
@@ -70,14 +107,28 @@ const Register = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            <label htmlFor="password"><i className="bi bi-at me-2"></i>Password</label>
+                            <label htmlFor="password"><i className="bi bi-lock me-2"></i>Password</label>
                         </div>
                         <div className={style.buttonContainer}>
-                            <button onClick={createUser}>{loading ? "Loading" : "Let's go!"}</button>
+                            <button disabled={loading} onClick={createUser}>
+                                {loading ? <CircularLoader stroke="white" radius="12" /> : "Let's go!"}
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </div>
     );
 }
