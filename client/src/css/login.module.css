@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f2f4f7;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flex-div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.name-content {
+    margin-right: 7rem;
+}
+
+.name-content .logo {
+    font-size: 4.5rem;
+    color: var(--secondary-color);
+    font-weight: 900;
+    font-family: 'Lobster', sans-serif;
+}
+
+.name-content p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 5rem;
+}
+
+.formBody {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 2rem;
+    width: 530px;
+    height: fit-content;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.loadingMask {
+    background-color: rgba(255, 255, 255, 0.342);
+    z-index: 9998;
+    width: 530px;
+    height: 100%;
+    position: absolute;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    transition: 1s ease;
+
+}
+
+.formBody input {
+    outline: none;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    font-size: small;
+}
+
+.formBody input:focus {
+    border: 1.8px solid #1877f2;
+}
+
+.formBody .login {
+    background: #0f71f1 !important;
+    cursor: pointer;
+}
+
+.formBody .login:hover {
+    background: #2d3d51 !important;
+}
+
+.createAccText a {
+    font-size: 14px !important;
+    text-decoration: underline !important;
+}
+
+.formBody a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    padding-top: 0.8rem;
+    color: #1877f2;
+}
+
+.formBody hr {
+    background: #f7f7f7;
+    margin: 1rem;
+}
+
+.formBody .login {
+    outline: none;
+    border: none;
+    background: var(--secondary-color);
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    color: #fff;
+    width: 100%;
+}
+
+.formBody .create-account {
+    outline: none;
+    border: none;
+    background: #1877f2;
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    color: #fff;
+    width: 100%;
+
+}
+
+.g-account {
+    outline: none;
+    border: 1px solid rgba(128, 128, 128, 0.505);
+    background: transparent;
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    color: black;
+    width: 100%;
+}
+
+.sideLine {
+    height: 5px;
+    width: 50%;
+    border-bottom: 1px solid white;
+}
+
+.formBody .create-account:hover {
+    background: #03ad06;
+    cursor: pointer;
+}
+
+/* //.........Media Query.........// */
+
+@media (max-width: 500px) {
+    html {
+        font-size: 60%;
+    }
+
+    .name-content {
+        margin: 0;
+        text-align: center;
+    }
+
+    .formBody {
+        width: 300px;
+        height: fit-content;
+    }
+
+    .formBody input {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .formBody .login {
+        font-size: 1.5rem;
+    }
+
+    .formBody a {
+        font-size: 1.5rem;
+    }
+
+    .formBody .create-account {
+        font-size: 1.5rem;
+    }
+
+    .flex-div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 768px) {
+    html {
+        font-size: 60%;
+    }
+
+    .name-content {
+        margin: 0;
+        text-align: center;
+    }
+
+    .formBody {
+        width: 300px;
+        height: fit-content;
+    }
+
+    .formBody input {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .formBody .login {
+        font-size: 1.5rem;
+    }
+
+    .formBody a {
+        font-size: 1.5rem;
+    }
+
+    .formBody .create-account {
+        font-size: 1.5rem;
+    }
+
+    .flex-div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    html {
+        font-size: 60%;
+    }
+
+    .name-content {
+        margin: 0;
+        text-align: center;
+    }
+
+    .formBody {
+        width: 300px;
+        height: fit-content;
+    }
+
+    .formBody input {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .formBody .login {
+        font-size: 1.5rem;
+    }
+
+    .formBody a {
+        font-size: 1.5rem;
+    }
+
+    .formBody .create-account {
+        font-size: 1.5rem;
+    }
+
+    .flex-div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (orientation: landscape) and (max-height: 500px) {
+        .header {
+            height: 90vmax;
+        }
+    }
+}
