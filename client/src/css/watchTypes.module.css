@@ -1,0 +1,39 @@
+.titleText h1 {
+    color: rgb(255, 32, 32);
+    font-weight: 900;
+    /* font-size: 5px; */
+    letter-spacing: 5px;
+}
+/* 
+.watchTypesSection {
+    height: 100vh;
+} */
+
+.functionalitySection  {
+ padding: 8%;
+}
+.functionalitySection img {
+    max-width: 100%;
+    height: auto;
+}
+
+.boxDetails span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.functionalItem img {
+
+    transition: 1s ease-in-out;
+}
+
+.functionalItem:hover img{
+    border-radius: 10px;
+    padding: 1%;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(255, 83, 83);
+}
+
+/* shopbybrands */
+

@@ -3451,8 +3451,9 @@ input:focus {
     transform: scale(1.04)
 }
 
+
 .gallery-area .single-gallery {
-    position: relative;
+    /* position: relative; */
     overflow: hidden
 }
 
