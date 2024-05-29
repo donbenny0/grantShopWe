@@ -1,0 +1,26 @@
+.navbar{
+    height: 100px;
+}
+.brand {
+    font-weight: bold;
+    color: #2874f0;
+    font-size: 24px;
+}
+
+.kart {
+    color: #ff5722;
+}
+
+.searchForm {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link i {
+    margin-right: 5px;
+}

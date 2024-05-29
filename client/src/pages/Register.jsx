@@ -116,6 +116,7 @@ const Register = () => {
                         </div>
                     </div>
                 </div>
+                
             </div>
             <ToastContainer
                 position="top-right"
